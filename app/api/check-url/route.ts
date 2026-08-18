@@ -10,6 +10,7 @@ export async function POST(request: Request) {
 	await new Promise((resolve) => setTimeout(resolve, 1000))
 
 	const data: CheckURLResponse = {success: true, data: {missing: false, type: 'folder'}}
+	//const data: CheckURLResponse = {success: true, data: {missing: true}}
 	//const data: CheckURLResponse = {success:false, message: "Failed to check URL."}
 
 	return Response.json(data)

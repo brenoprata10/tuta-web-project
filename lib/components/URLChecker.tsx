@@ -25,7 +25,7 @@ export const URLChecker = () => {
     () =>
       debounce(async (url: string) => {
         const formData = new FormData();
-        formData.append("url", url);
+        formData.append("url", new URL(url).toString());
         setResponse(null);
 
         try {
