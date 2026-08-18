@@ -13,6 +13,7 @@ import { Loader } from "@/lib/components/ui/Loader";
 import type { CheckURLResponse } from "@/lib/domain/types";
 import debounce from "lodash.debounce";
 import { FileDetails } from "@/lib/components/FileDetails";
+import { isValidURL } from "@/lib/utils/url";
 
 export const URLChecker = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -51,7 +52,7 @@ export const URLChecker = () => {
       return;
     }
 
-    if (!inputRef.current?.checkValidity()) {
+    if (!inputRef.current?.checkValidity() || !isValidURL(url)) {
       setResponse({ success: false, message: "Invalid URL" });
       return;
     }
